@@ -3,137 +3,200 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Papers — Damian Giacone</title>
-  <meta name="description" content="Ensayos y papers de Damian Giacone sobre tecnología, datos y estrategia.">
+  <title>Papers — Damián Giacone</title>
+  <meta name="description" content="Ensayos y papers de Damián Giacone sobre tecnología, datos y estrategia industrial.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #fafaf8;
-      --text: #1a1a1a;
-      --muted: #6b6b6b;
-      --accent: #1a56db;
-      --border: #e4e4e0;
-      --tag-bg: #f0f0ec;
+      --bg:      #fbfaf9;
+      --text:    #1a1a1a;
+      --muted:   #636363;
+      --primary: #1d771d;
+      --border:  #e8e6e3;
+      --tag-bg:  #f2f0ed;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Work Sans", ui-sans-serif, system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
       font-size: 16px;
       line-height: 1.6;
     }
 
-    header {
-      padding: 3rem 1.5rem 2rem;
-      max-width: 720px;
-      margin: 0 auto;
+    /* ── Nav ── */
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0 1.5rem;
+      height: 56px;
       border-bottom: 1px solid var(--border);
+      background: var(--bg);
     }
 
-    header h1 {
-      font-size: 1.5rem;
+    .logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.7rem;
       font-weight: 600;
-      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.02em;
+      flex-shrink: 0;
+      text-decoration: none;
     }
 
-    header p {
-      margin-top: 0.4rem;
-      color: var(--muted);
-      font-size: 0.95rem;
+    .site-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
     }
 
-    main {
-      max-width: 720px;
+    /* ── Content ── */
+    .container {
+      max-width: 760px;
       margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
+      padding: 3rem 1.5rem 5rem;
     }
 
-    .category {
+    /* ── Header ── */
+    .page-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.6rem;
+    }
+
+    h1 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 540px;
       margin-bottom: 3rem;
     }
 
+    /* ── Category ── */
+    .category {
+      margin-bottom: 2.5rem;
+    }
+
     .category-label {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--primary);
       margin-bottom: 1rem;
     }
 
+    /* ── Paper card ── */
     .paper {
-      padding: 1.25rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .paper:first-of-type {
+      padding: 1.4rem 0;
       border-top: 1px solid var(--border);
     }
 
+    .paper:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
     .paper-title {
-      font-size: 1.05rem;
-      font-weight: 500;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 400;
       color: var(--text);
       margin-bottom: 0.35rem;
-      letter-spacing: -0.01em;
+      line-height: 1.3;
     }
 
     .paper-desc {
       font-size: 0.9rem;
       color: var(--muted);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.9rem;
     }
 
     .paper-links {
       display: flex;
-      gap: 0.75rem;
+      gap: 0.6rem;
       flex-wrap: wrap;
     }
 
     .paper-links a {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 500;
-      color: var(--accent);
+      color: var(--primary);
       text-decoration: none;
-      padding: 0.2rem 0.6rem;
-      background: var(--tag-bg);
+      padding: 0.25rem 0.7rem;
+      background: transparent;
+      border: 1px solid var(--primary);
       border-radius: 4px;
-      border: 1px solid var(--border);
-      transition: background 0.15s;
+      transition: background 0.15s, color 0.15s;
     }
 
     .paper-links a:hover {
-      background: #e8eefb;
-      border-color: #b0c4f7;
+      background: var(--primary);
+      color: #fff;
     }
 
+    /* ── Footer ── */
     footer {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 1.5rem;
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
       font-size: 0.82rem;
       color: var(--muted);
-      border-top: 1px solid var(--border);
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--primary);
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Papers</h1>
-  <p>Damian Giacone — ensayos sobre tecnología, datos y estrategia.</p>
-</header>
+<nav>
+  <a class="logo" href="https://damiangiacone.com" aria-label="Inicio">DG</a>
+  <a class="site-name" href="https://damiangiacone.com">damiangiacone.com</a>
+</nav>
 
-<main>
+<div class="container">
+
+  <p class="page-label">Publicaciones</p>
+  <h1>Papers</h1>
+  <p class="page-desc">Ensayos sobre tecnología, datos y estrategia industrial. Escritos desde la práctica, para equipos técnicos y directivos.</p>
 
   <div class="category">
-    <div class="category-label">Pesca · Puertos Azules</div>
+    <p class="category-label">Pesca · Puertos Azules</p>
 
     <div class="paper">
       <div class="paper-title">Decidir con incertidumbre tecnológica</div>
-      <div class="paper-desc">Por qué los datos propios son la mejor cobertura cuando no se sabe qué tecnología va a ganar.</div>
+      <p class="paper-desc">Por qué los datos propios son la mejor cobertura cuando no se sabe qué tecnología va a ganar.</p>
       <div class="paper-links">
         <a href="Pesca/Puertos%20Azules/decidir-con-incertidumbre-tecnologica.html">Leer</a>
         <a href="Pesca/Puertos%20Azules/decidir-con-incertidumbre-tecnologica.pdf">PDF</a>
@@ -142,19 +205,20 @@
 
     <div class="paper">
       <div class="paper-title">De nivel 0 a nivel 1 de madurez tecnológica</div>
-      <div class="paper-desc">El camino para que una organización pase de no tener datos a tomar decisiones con ellos.</div>
+      <p class="paper-desc">El camino para que una organización pase de no tener datos a tomar decisiones con ellos.</p>
       <div class="paper-links">
+        <a href="Pesca/Puertos%20Azules/nivel-0-a-nivel-1-madurez-tecnologica.html">Leer</a>
         <a href="Pesca/Puertos%20Azules/nivel-0-a-nivel-1-madurez-tecnologica.pdf">PDF</a>
       </div>
     </div>
 
   </div>
 
-</main>
+  <footer>
+    <a href="https://damiangiacone.com">← damiangiacone.com</a>
+  </footer>
 
-<footer>
-  <a href="https://github.com/dgiacone/papers" style="color: inherit;">github.com/dgiacone/papers</a>
-</footer>
+</div>
 
 </body>
 </html>
